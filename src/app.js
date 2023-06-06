@@ -5,6 +5,7 @@ import morgan from "morgan";
 import authRouter from "./routes/auth";
 import mongoose from "mongoose";
 import productRouter from "./routes/product";
+import RouterCategories from "./routes/category";
 
 // Config
 dotenv.config();
@@ -18,7 +19,7 @@ app.use(morgan("tiny"));
 
 app.use("/api", authRouter);
 app.use("/api", productRouter);
-
+app.use("/api", RouterCategories);
 mongoose
   .connect("mongodb://127.0.0.1:27017/nodejs-angular")
   .then(() => {
