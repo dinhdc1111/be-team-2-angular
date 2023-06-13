@@ -1,3 +1,4 @@
+import Joi from "joi";
 import joi from "joi";
 export const signupSchema = joi.object({
   name: joi.string().required().messages({
@@ -19,6 +20,7 @@ export const signupSchema = joi.object({
     "string.empty": "confirmPassword không đc để trống",
     "any.required": "Trường confirm password là bắt buộc",
   }),
+  role:Joi.string()
 });
 
 export const signinSchema = joi.object({

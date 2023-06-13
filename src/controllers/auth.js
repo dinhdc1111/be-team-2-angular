@@ -95,3 +95,50 @@ export const signin = async (req, res) => {
     });
   }
 };
+//get All
+export const getAll = async (req, res) => {
+
+  try {
+      const data = await User.find()
+      return res.status(200).json({
+          data
+      })
+  } catch (error) {
+      return res.status(400).json({
+          message: "Không lấy được sản phẩm"
+      })
+
+  }
+
+}
+//get
+export const get = async (req, res) => {
+
+  try {
+      const data = await User.findById(req.params.id)
+      return res.status(200).json({
+        data
+      })
+  } catch (error) {
+      return res.status(400).json({
+          message: "Không lấy được sản phẩm"
+      })
+
+  }
+
+}
+
+
+export const remove = async (req, res) => {
+  try {
+      const data = await User.findByIdAndDelete(req.params.id)
+      return res.status(200).json({
+          message: "xoa thanh cong"
+      })
+  } catch (error) {
+      return res.status(400).json({
+          message: error
+      })
+
+  }
+}

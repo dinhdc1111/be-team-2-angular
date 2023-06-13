@@ -81,7 +81,8 @@ export const update = async (req, res) => {
         message: error.details[0].message,
       });
     }
-    const category = await Category.findByIdAndUpdate(req.params.id, req.body);
+    const category = await Category.findByIdAndUpdate(req.params.id, req.body , {new:true});
+   
     if (!category) {
       return res.status(400).json({
         messenger: "Update category không thành công",
